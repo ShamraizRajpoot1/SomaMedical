@@ -7,7 +7,7 @@ import { fetchCartItems } from "../../../../store/actions";
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import { initStripe, useStripe } from '@stripe/stripe-react-native';
-import {SP_KEY} from '@env'
+import {SS_KEY} from '@env'
 import { routes } from "../../../../services";
 export function useHooks(props) {
   const [isVisible, setVisible] = useState(false);
@@ -110,7 +110,7 @@ export function useHooks(props) {
         {
           method: 'POST',
           headers: {
-            Authorization: `Bearer sk_test_51PhQpdLhIRO7riQUhe91ot7UoOiMSuNCeWiMIBKDomvsU3MDcaHiQwczzaLkNgpkm93n1VXWjILmm3KdXuXZuy7c008ro6meZ1`, // Replace with your actual test secret key
+            Authorization: `Bearer ${SS_KEY}`, // Replace with your actual test secret key
             'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: `amount=${amount}&currency=usd&payment_method_types[]=card`,
